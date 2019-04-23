@@ -37,6 +37,7 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice,
 def every_possible_pairing_of_students(array)
+  array.combination(2)
 end
 
 # discard the first 3 elements of an array,
@@ -127,6 +128,7 @@ end
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
+  (array.sum.to_f / array.count).ceil
 end
 
 # get all the elements in an array, up until the first element
@@ -134,6 +136,8 @@ end
 # [1, 3, 5, 4, 1, 2, 6, 2, 1, 3, 7]
 # becomes [1, 3, 5, 4, 1, 2]
 def get_elements_until_greater_than_five(array)
+  i = array.find_index(6)
+  array[0...i]
 end
 
 # turn an array (with an even number of elements) into a hash, by
@@ -148,43 +152,54 @@ end
 # . e.g. the array ['cat', 'dog', 'fish'] becomes
 # ['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']
 def get_all_letters_in_array_of_words(array)
+  new_array = array.map do |l|
+    l.chars
+  end
+  new_array.flatten.sort
 end
 
 # swap the keys and values in a hash. e.g.
 # {'a' => 'b', 'c' => 'd'} becomes
 # {'b' => 'a', 'd' => 'c'}
 def swap_keys_and_values_in_a_hash(hash)
+  hash.invert
 end
 
 # in a hash where the keys and values are all numbers
 # add all the keys and all the values together, e.g.
 # {1 => 1, 2 => 2} becomes 6
 def add_together_keys_and_values(hash)
+  hash.to_a.flatten.sum
 end
 
 # take out all the capital letters from a string
 # so 'Hello JohnDoe' becomes 'ello ohnoe'
 def remove_capital_letters_from_string(string)
+  string.delete('A-Z')
 end
 
 # round up a float up and convert it to an Integer,
 # so 3.214 becomes 4
 def round_up_number(float)
+  float.ceil
 end
 
 # round down a float up and convert it to an Integer,
 # so 9.52 becomes 9
 def round_down_number(float)
+  float.floor
 end
 
 # take a date and format it like dd/mm/yyyy, so Halloween 2013
 # becomes 31/10/2013
 def format_date_nicely(date)
+  "#{date.day}/#{date.month}/#{date.year}"
 end
 
 # get the domain name *without* the .com part, from an email address
 # so alex@makersacademy.com becomes makersacademy
 def get_domain_name_from_email_address(email)
+  email.
 end
 
 # capitalize the first letter in each word of a string,
